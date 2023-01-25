@@ -1,13 +1,23 @@
 import PropTypes from 'prop-types';
-export default function FriendListItem({ avatar, name, isOnline, id }) {
+import {
+  FriendListItemStyle,
+  FriendStatus,
+  FriendAvatar,
+  FriendName,
+} from 'components';
+export const FriendListItem = ({ avatar, name, isOnline, id }) => {
   return (
-    <li className="item">
-      <span className="status">{isOnline}</span>
-      <img className="avatar" src={avatar} alt="User avatar" width="48" />
-      <p className="name">{name}</p>
-    </li>
+    <FriendListItemStyle>
+      {isOnline ? (
+        <FriendStatus style={{ backgroundColor: 'green' }}></FriendStatus>
+      ) : (
+        <FriendStatus style={{ backgroundColor: 'red' }}></FriendStatus>
+      )}
+      <FriendAvatar src={avatar} alt="User avatar" width="48" />
+      <FriendName>{name}</FriendName>
+    </FriendListItemStyle>
   );
-}
+};
 
 FriendListItem.propTypes = {
   avatar: PropTypes.string.isRequired,

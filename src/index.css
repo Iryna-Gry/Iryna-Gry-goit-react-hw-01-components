@@ -9,6 +9,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+:root {
+  --primary-text-color: rgb(68, 88, 88);
+  --title-text-color: rgb(39, 44, 44);
+  --primary-bg-color: rgb(246, 251, 255) ;
+  /* --accent-color: ; */
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

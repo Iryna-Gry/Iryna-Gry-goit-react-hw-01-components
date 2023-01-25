@@ -1,35 +1,49 @@
 import PropTypes from 'prop-types';
-export default function TransactionHistory({ items }) {
+import {
+  TransactionList,
+  TransactionListHeader,
+  TransactionListHeaderRow,
+  TransactionListItem,
+} from 'components';
+export const TransactionHistory = ({ items }) => {
   return (
-    <table className="transaction-history">
-      <thead>
+    <TransactionList>
+      <TransactionListHeader>
         <tr>
-          <th>Type</th>
-          <th>Amount</th>
-          <th>Currency</th>
+          <TransactionListHeaderRow>Type</TransactionListHeaderRow>
+          <TransactionListHeaderRow>Amount</TransactionListHeaderRow>
+          <TransactionListHeaderRow>Currency</TransactionListHeaderRow>
         </tr>
-      </thead>
+      </TransactionListHeader>
 
       <tbody>
-        {items.map(item => (
-          <tr key={item.id}>
-            <td>{item.type}</td>
-            <td>{item.amount}</td>
-            <td>{item.currency}</td>
-          </tr>
-        ))}
+        {items.map(({ id, type, amount, currency }, index) =>
+          index % 2 ? (
+            <tr key={id} style={{ backgroundColor: 'rgb(224, 232, 240)' }}>
+              <TransactionListItem>{type}</TransactionListItem>
+              <TransactionListItem>{amount}</TransactionListItem>
+              <TransactionListItem>{currency}</TransactionListItem>
+            </tr>
+          ) : (
+            <tr key={id} style={{ backgroundColor: 'var(--primary-bg-color)' }}>
+              <TransactionListItem>{type}</TransactionListItem>
+              <TransactionListItem>{amount}</TransactionListItem>
+              <TransactionListItem>{currency}</TransactionListItem>
+            </tr>
+          )
+        )}
       </tbody>
-    </table>
+    </TransactionList>
   );
-}
+};
 
 TransactionHistory.propTypes = {
   items: PropTypes.arrayOf(
-    PropTypes.shape({
+    PropTypes.exact({
       id: PropTypes.string.isRequired,
       type: PropTypes.string.isRequired,
       amount: PropTypes.string.isRequired,
       currency: PropTypes.string.isRequired,
     })
-  ),
+  ).isRequired,
 };

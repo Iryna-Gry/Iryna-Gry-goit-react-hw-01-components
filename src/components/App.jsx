@@ -2,23 +2,23 @@ import user from 'data/user';
 import data from 'data/data';
 import friends from 'data/friends';
 import transactions from 'data/transactions';
-import Profile from "components/profile/Profile";
-import Statistics from 'components/statistics/Statistics';
-import FriendList from 'components/friendlist/FriendList';
-import TransactionHistory from 'components/transactionHistory/TransactionHistory';
+import { Profile, Statistics, FriendList, TransactionHistory} from "components";
 
 
 export const App = () => {
   return (
     <div
-      // style={{
-      //   height: '100vh',
-      //   display: 'flex',
-      //   justifyContent: 'center',
-      //   alignItems: 'center',
-      //   fontSize: 40,
-      //   color: '#010101'
-      // }}
+      style={{
+        // height: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexWrap: 'wrap',
+        gap: "30px",
+        margin: "10px 20px",
+        // fontSize: 40,
+        // color: '#010101'
+      }}
     >
       <Profile
     username={user.username}
@@ -27,11 +27,13 @@ export const App = () => {
     avatar={user.avatar}
     stats={user.stats}
       />
+      <div>
       <Statistics title="Upload stats" stats={data} />
-      <Statistics stats={data} />
-      <FriendList friends={friends} />
+        <Statistics stats={data} />
+       
+        <FriendList friends={friends} />
+         </div>
       <TransactionHistory items={transactions} />
-
     </div>
   );
 };
