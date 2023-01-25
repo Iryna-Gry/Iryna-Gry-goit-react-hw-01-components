@@ -1,5 +1,6 @@
 export * from './profile/Profile';
 export * from './statistics/Statistics';
+export * from './statistics/Statistics.styled';
 export * from './friendlist/FriendList';
 export * from './friendListItem/FriendListItem';
 export * from './friendlist/FriendList.styled';

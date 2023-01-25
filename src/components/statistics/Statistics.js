@@ -6,7 +6,8 @@ import {
   StatListItem,
   StatListElementLabel,
   StatListElementValue,
-} from './Statistics.styled';
+} from 'components';
+
 import { getRandomColor } from 'utils/getRandomColor';
 export const Statistics = ({ title, stats }) => {
   return (

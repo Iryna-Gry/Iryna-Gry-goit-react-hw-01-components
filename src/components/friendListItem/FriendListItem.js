@@ -5,6 +5,7 @@ import {
   FriendAvatar,
   FriendName,
 } from 'components';
+
 export const FriendListItem = ({ avatar, name, isOnline, id }) => {
   return (
     <FriendListItemStyle>
