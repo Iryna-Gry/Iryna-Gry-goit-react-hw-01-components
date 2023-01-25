@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 
 export const Section = styled.section`
   padding: 10px;
-  margin-left: 20px;
   max-width: 320px;
   text-align: center;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
