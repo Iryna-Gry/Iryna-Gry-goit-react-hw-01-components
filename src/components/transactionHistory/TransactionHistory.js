@@ -4,6 +4,7 @@ import {
   TransactionListHeader,
   TransactionListHeaderRow,
   TransactionListItem,
+  TransactionListRows,
 } from 'components';
 
 export const TransactionHistory = ({ items }) => {
@@ -18,21 +19,13 @@ export const TransactionHistory = ({ items }) => {
       </TransactionListHeader>
 
       <tbody>
-        {items.map(({ id, type, amount, currency }, index) =>
-          index % 2 ? (
-            <tr key={id} style={{ backgroundColor: 'rgb(224, 232, 240)' }}>
-              <TransactionListItem>{type}</TransactionListItem>
-              <TransactionListItem>{amount}</TransactionListItem>
-              <TransactionListItem>{currency}</TransactionListItem>
-            </tr>
-          ) : (
-            <tr key={id} style={{ backgroundColor: 'var(--primary-bg-color)' }}>
-              <TransactionListItem>{type}</TransactionListItem>
-              <TransactionListItem>{amount}</TransactionListItem>
-              <TransactionListItem>{currency}</TransactionListItem>
-            </tr>
-          )
-        )}
+        {items.map(({ id, type, amount, currency }, index) => (
+          <TransactionListRows key={id}>
+            <TransactionListItem>{type}</TransactionListItem>
+            <TransactionListItem>{amount}</TransactionListItem>
+            <TransactionListItem>{currency}</TransactionListItem>
+          </TransactionListRows>
+        ))}
       </tbody>
     </TransactionList>
   );

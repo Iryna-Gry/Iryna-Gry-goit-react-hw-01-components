@@ -20,7 +20,12 @@ export const TransactionListHeaderRow = styled.th`
   width: calc(100% / 3);
   margin: 0;
 `;
-export const TransactionListRows = styled.tr``;
+export const TransactionListRows = styled.tr`
+  background-color: var(--primary-bg-color);
+  &:nth-of-type(2n) {
+    background-color: rgb(224, 232, 240);
+  }
+`;
 export const TransactionListItem = styled.td`
   padding: 5px;
   outline: 1px solid white;
